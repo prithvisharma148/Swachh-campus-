@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NIT Patna · Swachh Campus Dustbin Locator</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="style.css"></head><body>
+<header><div><h1>🗑️ NIT Patna · Swachh Campus</h1><p>Find the nearest dustbin · Swachh Bharat Mission</p></div><button id="locateBtn">📍 Find nearest dustbin</button></header>
+<main>
+<section class="stats" id="stats"></section>
+<section class="map-card"><div class="toolbar"><input id="search" placeholder="Search by Bin ID or area (e.g. BIN-003)"><button id="adminBtn" class="secondary">🔐 Admin</button></div><div id="map"></div>
+<div class="legend"><span><i class="dot blue"></i>You</span><span><i class="dot green"></i>Available (&lt;70%)</span><span><i class="dot" style="background:#f59e0b"></i>Almost full</span><span><i class="dot red"></i>Full</span><span><i class="dot" style="background:#777"></i>Maintenance</span></div></section>
+<section class="reports"><h2>Dustbins on campus</h2><p class="muted" id="nearestMsg">Tap “Find nearest dustbin” to sort by distance (straight-line).</p><div id="binList"></div></section>
+<section class="panel" id="adminPanel" style="display:none"><h2>Admin panel</h2><p class="muted">Demo PIN login (stored on this device). Use a real secure backend for deployment.</p><div id="adminBody"></div></section>
+<section class="panel"><h2>Report a cleanliness issue / full or missing bin</h2><form id="reportForm"><label>Location<input id="locationText" readonly placeholder="Use 'Find nearest dustbin'"></label><label>Describe the issue<textarea id="note" required maxlength="500" placeholder="Example: BIN-002 is overflowing"></textarea></label><label>Photo<input id="photo" type="file" accept="image/*" capture="environment"></label><div id="previewWrap" class="preview-wrap hidden"><img id="preview" alt="Selected report photo"></div><button class="primary" type="submit">Submit report</button><p id="status" class="status"></p></form></section>
+<section class="reports"><div class="reports-head"><h2>Recent reports</h2><button id="clearBtn" class="secondary">Clear demo reports</button></div><div id="reportList"></div></section>
+<section class="sw"><h2>🇮🇳 Swachh Bharat Mission</h2><div class="grid2">
+<div class="card"><h3>💚 Green bin · Wet waste</h3><p>Food scraps, peels, leaves, tea waste.</p></div>
+<div class="card"><h3>💙 Blue bin · Dry waste</h3><p>Paper, plastic, metal, glass, cartons.</p></div>
+<div class="card"><h3>⬛ Black/Red · Hazardous</h3><p>Batteries, e-waste, sanitary &amp; medical waste.</p></div>
+<div class="card pledge"><h3>🙏 Swachhta Pledge</h3><p>I will keep my campus clean, use dustbins, and segregate waste.</p><button class="primary" id="pledgeBtn">I take the pledge</button><p id="pledgeMsg" class="status"></p></div>
+<div class="card"><h3>🏅 My Swachh Points</h3><p><b id="points">0</b> points — +10 per report, +20 for the pledge. Reuse · Reduce · Recycle.</p></div>
+<div class="card"><h3>♻️ Campus Clean Score</h3><p id="cleanScore"></p></div></div></section>
+</main><footer>Prototype · Bin positions are estimated from the campus map; verify with GPS at each bin before deployment.</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="app.js"></script></body></html>
